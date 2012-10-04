@@ -1,0 +1,8 @@
+; $ID$
+name = Log a bug
+description = Open a new trac ticket to log a bug.
+package = "example"
+core = 6.x
+php = 5.2 
+
+dependencies[] = token

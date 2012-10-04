@@ -1,0 +1,7 @@
+; $ID$
+name = Calupdate
+description = Updates the calendar From below and to the Left when an event is added or updated.
+package = "Other"
+core = 6.x
+php = 5.2 
+

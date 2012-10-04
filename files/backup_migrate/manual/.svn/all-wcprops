@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/jacalito_cw/!svn/ver/1/files/backup_migrate/manual
+END
+._test.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/jacalito_cw/!svn/ver/1/files/backup_migrate/manual/._test.txt
+END
+test.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/jacalito_cw/!svn/ver/1/files/backup_migrate/manual/test.txt
+END

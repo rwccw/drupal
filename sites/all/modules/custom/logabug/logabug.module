@@ -1,0 +1,87 @@
+<?php
+// $ID$
+
+/**
+ * @file
+ * Opens a new ticket to submit a bug
+ *
+ * Adds a small link which pre-populates a new trac
+ * ticket with basic information needed to test the
+ * identified bug.
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function logabug_menu() {
+  $items['admin/settings/logabug'] = array(
+      'title' => 'Logabug settings',
+      'description' => 'Settings to change how log a bug behaves.',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('logabug_admin_settings'),
+      'access arguments' => array('administer site configuration'),
+      'type' => MENU_NORMAL_ITEM,
+      'file' => 'logabug.admin.inc'
+    );
+  return $items;
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function logabug_perm() {
+  return array('display logabug');
+}
+
+
+/**
+ * Implementation of hook_footer().
+ */
+function logabug_footer($main = 0) {
+  $options['attributes'] = array('class' => 'logabug flipv', 'target' => '_blank');
+  $buglink = l("Log a Bug", token_replace(variable_get('logabug_link', NULL)), $options);
+  if (user_access('display logabug')) {
+    
+    return theme('logabug_link', $buglink, NULL);
+  } else {
+    return;
+  }
+}
+
+/**
+ * Implementation of hook_init().
+ *
+ * We can't move this into hook_footer(), because PHP-only based themes
+ * like chameleon load and output scripts and stylesheets in front of
+ * theme_closure(), so we ensure Admin menu's styles and scripts are loaded on
+ * all pages via hook_init().
+ */
+function logabug_init() {
+  if (user_access('display logabug')) {
+    $path = drupal_get_path('module', 'logabug');
+    drupal_add_css($path . '/logabug.css');
+    drupal_add_js($path . '/js/cvi_text_lib.js');
+    drupal_add_js($path . '/js/jquery.flipv.js');
+  }
+}
+
+
+/**
+ * Implementation of hook_theme
+ *
+ * theme registration function
+ */
+
+function logabug_theme() {
+  return array(
+    'logabug_link' => array(
+      'arguements' => array('link' => NULL),
+    ),
+  );
+}
+
+function theme_logabug_link($link) {
+  $output = $link;
+
+  return $output;
+}

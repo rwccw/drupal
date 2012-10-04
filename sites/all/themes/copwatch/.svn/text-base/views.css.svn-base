@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+/* style elements for views-specific content */
+
+.field-field-highlighted-content .field-label {
+  color: #003;
+}
+
+.field-type-viewfield {
+  color: #666;
+  font-weight:bold;
+  padding: 2em;
+  background: #fcf; /* bg image url(images/background.png) */
+  margin-bottom:20px;
+  font-size: 85%;
+  border: solid 1px #B5C9D8;
+}

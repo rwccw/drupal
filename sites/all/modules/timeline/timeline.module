@@ -1,0 +1,149 @@
+<?php
+// $Id: timeline.module,v 1.20.2.6.2.6 2009/07/25 06:13:47 xamanu Exp $
+
+/**
+ * @file
+ * Module providing a scrollable timeline view for Drupal events and nodes.
+ */
+
+include dirname(__FILE__) .'/timeline.theme.inc';
+
+
+/**
+ * Implementation of hook_help(). Provides online user help.
+ */
+function timeline_help($section) {
+  switch ($section) {
+    case 'admin/modules#name':
+      return t('timeline');
+    case 'admin/modules#description':
+      return t('Provides a draggable and scrollable timeline view. Requires the
+                views module and the libraries module and makes use of the cck and date module if available.');
+    case 'admin/settings/timeline':
+      if (module_exists('views_ui')) 
+        $timeline_route = t('To actually create and manage timelines, use the <a href="!views">views administration</a> screen.</p>', array('!views' => url('admin/build/views')));
+      else 
+        $timeline_route = t('To actually create and manage timelines, enable the Views UI module in the <a href="!modules">modules administration</a> screen.</p>', array('!modules' => url('admin/build/modules')));
+      return t('<p>Timeline views provides a draggable and scrollable widget for
+                 visualizing temporal information. This screen allows you to
+                 override default settings for each timeline. ' . $timeline_route);
+  }
+}
+
+/**
+ * Implementation of hook_views_api().
+ */
+function timeline_views_api() {
+  return array('api' => 2);
+}
+
+/**
+ * Implementation of hook_theme()
+ */
+function timeline_theme() {
+  return array(
+    'timeline_debug' => array(
+      'arguments' => array('$debug_array'),
+    ),
+ );
+}
+
+/**
+ * Implementation of hook_menu(). Defines menu items and page callbacks.
+ */
+function timeline_menu() {
+  $items = array();
+  $items['admin/settings/timeline'] = array(
+    'title' => 'Timeline',
+    'description' => 'Settings for timeline displays',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('timeline_admin_settings'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'timeline.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Converts different expected date formats to one global date format to talk to the timeline.
+ *
+ * @return
+ *   date in defined output
+ */
+function timeline_date_conversion($date, $input_format, $output_format = "M d Y G:i:s") {
+  switch ($input_format) {
+    case 'date':
+      if ($output_format == 'timestamp') return date_convert($date, DATE_ISO, DATE_UNIX);
+      return format_date(date_convert($date, DATE_ISO, DATE_UNIX), 'custom', $output_format, '0', 'en');
+    case 'datetime':
+      if ($output_format == 'timestamp') return date_convert($date, DATE_DATETIME, DATE_UNIX);
+      return format_date(date_convert($date, DATE_DATETIME, DATE_UNIX), 'custom', $output_format, '0', 'en');
+    case 'datestamp':
+    case 'timestamp':
+      if ($output_format == 'timestamp') return $date;
+      return format_date($date, 'custom', $output_format, '0', 'en');
+  }
+}
+
+
+/**
+ * Check if all library files properly exist.
+ *
+ * @return: TRUE if everything is correct
+ *          FALSE if no library was found
+ *          string: with an error message of the missing file.
+ */
+function timeline_validate_library() {
+  if (module_exists('libraries')) {
+    $timeline_path = libraries_get_path('simile_timeline');
+    $timeline_library_files = array(
+      '/timeline_js/timeline-api.js',
+      '/timeline_js/timeline-bundle.js',
+      '/timeline_ajax/simile-ajax-api.js',
+      '/timeline_ajax/simile-ajax-bundle.js',
+      '/timeline_ajax/scripts/signal.js',
+    );
+    // check if library is available 'sites/all/libraries/simile_timeline'
+    if (file_check_directory($timeline_path)) {
+      $messages = '';
+      foreach ($timeline_library_files as $file) {
+        $file = $timeline_path . $file;
+        if (!file_exists($file)) {
+          $messages .= '<div>' . t('Error: !timeline_filename not found</div>', array('!timeline_filename' => '<span class="error">' . $file . '</span>'));
+        }
+      }
+      // no errors found
+      if ($messages == '')
+        return TRUE;
+      else
+        return $messages;
+    }
+  }
+  // no library found
+  return FALSE;
+}
+
+/**
+ * Scans the themes directory to include more themes
+ *
+ * @return
+ *   array with the filenames of found theme files plus the classic theme
+ *
+ */
+function timeline_available_themes() {
+  $timeline_theme_names = array('ClassicTheme' => 'ClassicTheme');
+  $timeline_theme_path = drupal_get_path('module', 'timeline') .'/themes';
+  foreach (file_scan_directory($timeline_theme_path, '.*', array('.', '..', 'CVS'), 0, FALSE) as $timeline_theme) {
+    if (is_dir($timeline_theme_path . '/' . $timeline_theme->basename)) {
+      $timeline_theme_names[$timeline_theme->basename] = $timeline_theme->basename;
+    }
+  }
+  return $timeline_theme_names;
+}
+
+// TODO: REMOVE - jm
+function _timeline_to_dim($string) {
+  return intval($string) . (strpos($string, '%') !== FALSE ? '%' : 'px');
+}
