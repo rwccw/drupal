@@ -1,4 +1,4 @@
-if (Drupal.jsEnabled) {
+(function ($) {
   $(document).ready(function(){
     $('a.service-links-google-plus-one').each(function(){
       var counter = Drupal.settings.ws_gpo.counter ? '' : 'count="false" ';
@@ -7,4 +7,4 @@ if (Drupal.jsEnabled) {
       $(this).replaceWith(g_text);
     });
   });
-}
+})(jQuery);

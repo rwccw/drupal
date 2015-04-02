@@ -4,7 +4,7 @@ Original Author: Fredrik Jonsson fredrik at combonet dot se
 Ex Maintainer: Sivanandhan, P. apsivam .at. apsivam .dot. in
 Current Mantainer and Starter of 2.x branch: Fabio Mucciante aka TheCrow
 Current Co-Mantainer: Rob Loach
-Requires - Drupal 6
+Requires - Drupal 7
 License - GPL (see LICENSE)
 
 Overview:

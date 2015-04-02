@@ -8,49 +8,55 @@
 /**
  * Theming function for build a draggable service links table.
  */
-function theme_service_links_drag_table($form) {
-  $table = array();
+function theme_service_links_drag_table($variables) {
+  $form = $variables['form'];
+  $table['rows'] = array();
 
   foreach (element_children($form['service_links_show']) as $service_id) {
     $service = $form['service_links_show'][$service_id];
     $col = array();
 
-    $service['name'] = array('#value' => $service['#title']);
+    $service['name'] = array('#markup' => $service['#title']);
     $col[] = drupal_render($service['name']);
 
-    $service['service'] = array('#value' => $service['#service']);
+    $service['service'] = array('#markup' => $service['#service']);
     $col[] = drupal_render($service['service']);
 
     $service['show'] = array(
       '#type' => 'checkbox',
-      '#value' => $service['#default_value'],
+      '#checked' => $service['#default_value'],
       '#id' => $service['#id'],
       '#name' => $service['#name'],
     );
     $col[] = drupal_render($service['show']);
 
     $service['weight'] = $form['service_links_weight'][$service_id];
-    $service['weight']['#attributes']['class'] = 'service-weight';
+    $service['weight']['#attributes']['class'] = array('service-weight');
     $col[] = drupal_render($service['weight']);
 
     $table['weights'][] = $service['#weight'];
-    $table['rows'][] = array('data' => $col, 'class' => 'draggable');
+    $table['rows'][] = array('data' => $col, 'class' => array('draggable'));
   }
 
   $table['header'] = array(t('Service Name'), t('Group'), t('Show'), t('Weight'));
 
   drupal_alter('sl_servicestable', $table, $form);
 
-  if (empty($table['rows'])) {
-    $table['rows'][] = array(array('data' => t('No services available.'), 'colspan' => '5'));
-  }
-  else {
+  if (!empty($table['rows'])) {
     array_multisort($table['weights'], $table['rows']);
   }
 
   drupal_add_tabledrag('service_links', 'order', 'sibling', 'service-weight');
 
-  return theme('table', $table['header'], $table['rows'], array('id' => 'service_links'));
+  $params = array(
+    '#theme' => 'table',
+    '#header' => $table['header'],
+    '#rows' => $table['rows'],
+    '#attributes' => array('id' => 'service_links'),
+    '#empty' => t('No services available.'),
+  );
+
+  return theme('table', $params);
 }
 
 /**
@@ -69,8 +75,8 @@ function service_links_admin_settings() {
     '#type' => 'checkboxes',
     '#title' => t('Content types'),
     '#default_value' => variable_get('service_links_node_types', array()),
-    '#options' => array_map('check_plain', node_get_types('names')),
-    '#attributes' => array('class' => 'container-inline'),
+    '#options' => array_map('check_plain', node_type_get_names()),
+    '#attributes' => array('class' => array('container-inline')),
   );
   if (module_exists('taxonomy')) {
     $selected_vocs = variable_get('service_links_category_vocs', array());
@@ -80,7 +86,7 @@ function service_links_admin_settings() {
       '#title' => t('Show terms from the selected vocabularies'),
       '#default_value' => $selected_vocs,
       '#options' => $vocabularies,
-      '#attributes' => array('class' => 'container-inline'),
+      '#attributes' => array('class' => array('container-inline')),
     );
 
     $terms = _service_links_get_terms(array_values(array_filter($selected_vocs)));
@@ -145,6 +151,7 @@ function service_links_admin_settings() {
     '#type' => 'fieldset',
     '#title' => t('Page specific visibility settings'),
     '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
   );
   $access = user_access('use PHP for service visibility');
   $visibility = variable_get('service_links_visibility_for_node', SERVICE_LINKS_VISIBILITY_NOT_LISTED);
@@ -152,7 +159,7 @@ function service_links_admin_settings() {
   if ($visibility == SERVICE_LINKS_VISIBILITY_PHP && !$access) {
     $form['page_match'] = array(
       'service_links_visibility_for_node' => array(
-        '#type' => 'value',
+        '#type' => 'value', 
         '#value' => SERVICE_LINKS_VISIBILITY_PHP,
       ),
       'service_links_page_match_for_node' => array(
@@ -163,15 +170,15 @@ function service_links_admin_settings() {
   }
   else {
     $options = array(
-      SERVICE_LINKS_VISIBILITY_NOT_LISTED => t('Show on every page except the listed pages.'),
-      SERVICE_LINKS_VISIBILITY_ONLY_LISTED => t('Show on only the listed pages.'),
+      SERVICE_LINKS_VISIBILITY_NOT_LISTED => t('All pages except those listed'),
+      SERVICE_LINKS_VISIBILITY_ONLY_LISTED => t('Only the listed pages'),
     );
-    $description = t("Enter one page per line as Drupal paths. The '*' character is a wildcard. Example paths are %blog for the blog page and %blog-wildcard for every personal blog. %front is the front page.", array('%blog' => 'blog', '%blog-wildcard' => 'blog/*', '%front' => '<front>'));
+    $description = t("Specify pages by using their paths. Enter one path per line. The '*' character is a wildcard. Example paths are %blog for the blog page and %blog-wildcard for every personal blog. %front is the front page.", array('%blog' => 'blog', '%blog-wildcard' => 'blog/*', '%front' => '<front>'));
 
-    if ($access) {
-      $options += array(SERVICE_LINKS_VISIBILITY_PHP => t('Show if the following PHP code returns <code>TRUE</code> (PHP-mode, experts only).'));
+    if (module_exists('php') && $access) {
+      $options += array(SERVICE_LINKS_VISIBILITY_PHP => t('Pages on which this PHP code returns <code>TRUE</code> (experts only)'));
       $title = t('Pages or PHP code');
-      $description .= ' '. t('If the PHP-mode is chosen, enter PHP code between %php. Note that executing incorrect PHP-code can break your Drupal site.', array('%php' => '<?php ?>'));
+      $description .= ' ' . t('If the PHP option is chosen, enter PHP code between %php. Note that executing incorrect PHP code can break your Drupal site.', array('%php' => '<?php ?>'));
     }
     else {
       $title = t('Pages');
@@ -212,7 +219,7 @@ function service_links_admin_settings() {
   if (!empty($styles)) {
     $form['how_to_show_the_links']['service_links_style']['#options'] += $styles;
   }
-  
+
   $form['how_to_show_the_links']['service_links_hide_if_unpublished'] = array(
     '#type' => 'checkbox',
     '#title' => t("Don't show links if the content is unpublished"),
@@ -248,7 +255,7 @@ function service_links_admin_settings() {
   $form['how_to_show_the_links']['icons']['service_links_path_icons'] = array(
     '#type' => 'textfield',
     '#title' => t('Standard folder'),
-    '#description' => t('If you have alternative icons enter the relative path from your index.php without trailing slash (i.e. %path1 or %path2)', array('%path1' => 'files/newicons', '%path2' => 'sites/all/files/newicons')),
+    '#description' => t('If you have alternative icons enter here the relative path from your index.php without trailing slash (i.e. %path1 or %path2)', array('%path1' => 'files/newicons', '%path2' => 'sites/all/files/newicons')),
     '#default_value' => service_links_expand_path(NULL, 'icons'),
     '#size' => 40,
   );
@@ -258,7 +265,7 @@ function service_links_admin_settings() {
     '#description' => t('Check every icon in the standard folder and if not available, consider the default path %path', array('%path' => service_links_expand_path(NULL, 'preset'))),
     '#default_value' => variable_get('service_links_check_icons', FALSE),
   );
-  
+
   $form['extra_options'] = array(
     '#type' => 'fieldset',
     '#collapsible' => TRUE,
@@ -306,7 +313,8 @@ function service_links_admin_settings() {
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
       '#title' => t('Token help'),
-      '#value' => theme('token_help', 'node'),
+      '#theme' => 'token_tree',
+      '#token_types' => array('node'),
     );
   }
 
@@ -375,8 +383,9 @@ function service_links_admin_services_validate($form, &$form_state) {
       $form_state['values']['service_links_category_types'] = array();
       foreach ($vocabularies as $vid => $vocabulary) {
         if (isset($form_state['values']['service_links_category_by_voc_' . $vid])) {
-          $form_state['values']['service_links_category_types'] += $form_state['values']['service_links_category_by_voc_' . $vid]; 
+          $form_state['values']['service_links_category_types'] += $form_state['values']['service_links_category_by_voc_' . $vid];
         }
+
       }
     }
   }
@@ -406,7 +415,9 @@ function service_links_admin_services() {
   $form['service_links']['service_links_weight'] = array('#tree' => TRUE);
 
   foreach ($services as $service_id => $service) {
-    $icon = isset($service['icon']) ? service_links_expand_path($service['icon'], 'preset') : service_links_expand_path("$service_id.png", 'preset');
+    $icon = array(
+      'path' => isset($service['icon']) ? service_links_expand_path($service['icon'], 'preset') : service_links_expand_path("$service_id.png", 'preset'),
+    );
     $weight = isset($settings['weight'][$service_id]) ? $settings['weight'][$service_id] : 0;
 
     $form['service_links']['service_links_show'][$service_id] = array(
@@ -425,7 +436,7 @@ function service_links_admin_services() {
   }
 
   if (empty($services)) {
-    drupal_set_message(t('You need to load at least one of XXX Services module, please enable them in <a href="@url">admin > modules</a> page', array('@url' => url('admin/build/modules'))), 'warning');
+    drupal_set_message(t('You need to load at least one of XXX Services module, please enable them in <a href="@url">admin > modules</a> page', array('@url' => url('admin/modules'))), 'warning');
   }
 
   return system_settings_form($form);

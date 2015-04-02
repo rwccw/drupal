@@ -1,21 +1,14 @@
-// $Id: README.txt,v 1.2 2008/05/21 05:04:45 webchick Exp $
 
 CONTENTS OF THIS FILE
 ---------------------
 
  * Introduction
  * Installation
+ * Credits
 
 
 INTRODUCTION
 ------------
-
-Authors:
-* Jeff Robbins (jjeff)
-* Angela Byron (webchick)
-* Addison Berry (add1sun)
-
-This Module Made by Robots: http://www.lullabot.com
 
 jQuery Update module upgrades Drupal's stable version of jQuery in order to
 support the most current jQuery version available.
@@ -34,5 +27,11 @@ INSTALLATION
 
 2. Enable the module at Administer >> Site building >> Modules.
 
-3. That's it. :) Thanks to the new theme system in Drupal 6.x+, you no longer
-   need to copy files around. Hooray!
+
+CREDITS
+-------
+* Matt Farina (mfer)
+* Jeff Robbins (jjeff)
+* Angela Byron (webchick)
+* Addison Berry (add1sun)
+* Rob Loach

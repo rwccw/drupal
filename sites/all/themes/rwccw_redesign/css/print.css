@@ -1,0 +1,67 @@
+/* $Id: print.css,v 1.1.4.4 2009/03/19 23:49:02 couzinhub Exp $
+*/
+
+.sidebar, 
+#navigation, 
+#header-region, 
+#search-theme-form,
+#footer,
+.breadcrumb,
+.tabs,
+.feed-icon,
+.links,
+#signup-holder
+form{
+	display: none;
+}
+
+#page {
+	width: 100%;
+}
+
+#header {
+        display:none;
+	/*background-color: transparent;
+        background: url(images/cuesa_BW.gif) no-repeat top left;
+        height:78px;
+        border-bottom: 2px solid #000000;*/
+}
+/*pages from the print template will use an image inline*/
+#page.print-friendly #header{
+    display:block;
+    background-image:none;
+    height:78px;
+    border-bottom: 2px solid #000000;
+
+}
+#page.print-friendly #header img{
+    float:left;
+}
+#page.print-friendly #header h1{
+     margin-left: 20px;
+}
+#header h1 {
+    margin-left: 175px;
+    font-weight: normal;
+    font-size: 1.2em;
+    float:left;
+    margin-top:50px;
+
+}
+
+#content,
+#content #content-inner,
+.content,
+.title {
+	margin:20px 0;
+	width: auto;
+}
+
+a:hover, a:active, a:link, a:visited {
+	color: #000;
+}
+
+/*don't show images in contnet of  recipe pages*/
+body.node-type-recipe #content img{
+    display:none;
+}

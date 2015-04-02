@@ -1,0 +1,640 @@
+
+/** Custom styles **/
+
+
+/*farm and artisan search box*/
+#edit-fnode,#edit-fnode-1 {
+    width: 280px;
+}
+#farm_search_box {
+    /*border: 1px solid #989B42;
+    */
+ padding: 5px;
+}
+#artisan_search_content, #farm_search_content {
+    border: 1px solid #989B42;
+    padding: 20px 10px;
+    margin-top: .2em;
+}
+#artisan_search_content_inner, #farm_search_content_inner {
+    height: 175px;
+    overflow: auto;
+    border: 1px solid #cecece;
+    padding-left: 5px;
+}
+#artisan_search_content_inner p.farm_nav, #farm_search_content_inner p.farm_nav {
+    line-height: 1em;
+    margin: 0.3em;
+    padding: 0;
+}
+ul.farm_minitabs {
+    /*display: block;
+    background-color: #989B42;
+    */
+ list-style-type: none;
+    padding: 0;
+    height: 20px;
+}
+#sidebar-right ul.farm_minitabs li {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    height: 24px;
+    padding: 0;
+    text-align: center;
+    width: 110px;
+    text-indent: -99999999px;
+}
+#sidebar-right ul.farm_minitabs li a {
+    display: block;
+    width: 100px;
+    height: 20px;
+}
+ul.farm_minitabs li#farmers {
+    background-color: #ffffff;
+
+ background: url(images/tabs/farmer-tab-lt.jpg) no-repeat;
+    width: 110px;
+    height: 23px;
+}
+ul.farm_minitabs li#producers {
+    background-color: #989B42;
+ background: url(images/tabs/artisan-tab-dk.jpg) no-repeat;
+    width: 110px;
+    height: 23px;
+}
+
+/*calendar*/
+div.view-calendar .view-display-id-attachment_1,div.view-calendar .view-display-id-attachment_2 {
+    width: 428px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #EFF0EB;
+    padding-bottom: 25px;
+}
+div.view-calendar .view-display-id-attachment_1 {
+    float: left;
+    height: 650px;
+    min-height: 650px;
+    padding-bottom: 25px;
+}
+div.view-calendar .view-display-id-attachment_2 {
+    border-left: 1px solid #EFF0EB;
+    float: right;
+    height: 650px;
+    min-height: 650px;
+    padding-bottom: 25px;
+    clear: right;
+}
+div.view-calendar ul li {
+    list-style-type: none;
+}
+div.view-calendar .views-field-field-home-image-fid {
+    float: right;
+}
+div.view-calendar li div.views-field-title {
+    clear: both;
+}
+div.view-calendar li div.views-field-title a {
+    font-weight: bold;
+    color: #999C42;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+/** Recipes landing page **/
+#recipes_of_type {
+    border-bottom: 1px solid #ccc;
+    clear: both;
+    min-height: 130px;
+}
+#recipes_of_type img {
+    float: right;
+}
+#recipes_of_type ul li {
+    list-style-type: none;
+    line-height: 1.3em;
+}
+#recipes_of_type ul li a {
+    text-decoration: none;
+}
+body.page-recipes #recipes_of_type ul li a {
+    color: #333;
+}
+#recipes_of_type p.more_link {
+    margin-left: 30px;
+}
+body.page-recipes #recipes_of_type h3 a {
+ color: #1b6e70;
+}
+body.page-recipes #recipes_of_type h3 a:hover {
+    color: #CC6600;
+}
+
+/** Learn -- A to Z **/
+img.a2z {
+    float: left;
+    margin-right: 30px;
+    margin-top: 25px;
+}
+
+#sust_feature {
+    width: 899px;
+    border-bottom: 1px solid #c1c2c1;
+    float: left;
+    background: url(images/sust_page_bg.gif);
+}
+div#content-inner.sust_inner {
+    background: url(images/sust_page_bg.gif);
+}
+#markets_feature {
+    width: 900px;
+    border-bottom: 1px solid #c1c2c1;
+    float: left;
+}
+#az_feature {
+    width: 635px;
+    padding: 10px;
+    float: left;
+}
+#az_feature h3 {
+    margin-left: 15px;
+    background: url(images/titles/sustainable_a_z.png) no-repeat;
+    text-indent: -999999px;
+    margin-bottom: 12px;
+}
+#az_feature h4.singleLetterAZ,div.view-a-2-z h4.singleLetterAZ {
+    color: #333;
+    font-size: 48px;
+    margin-bottom: 20px;
+    margin-top: 18px;
+    padding: 0;
+}
+div.view-a-2-z h4.singleLetterAZ {
+    float: left;
+    clear: right;
+    width: 460px;
+    line-height: 48px;
+    height: 48px;
+}
+#az_feature h2 {
+    margin-bottom: 10px;
+}
+#az_feature p {
+    margin: 0;
+}
+#sust_front_right_col {
+    width: 200px;
+    padding: 10px;
+    float: right;
+}
+#sust_btm_col1 {
+    width: 500px;
+    float: left;
+    clear: left;
+    border-left: 1px solid #c1c2c1;
+    padding: 10px;
+}
+#sust_btm_col1 div.views-field-field-home-image-fid img {
+    float: left;
+}
+#sust_btm_col1 div.views-field-title {
+    clear: both;
+}
+#sust_btm_col1 div.views-field-title a {
+    text-decoration: none;
+    font-weight: bold;
+}
+#sust_btm_col2 {
+    width: 345px;
+    float: right;
+    border-right: 1px solid #c1c2c1;
+    padding: 10px;
+}
+#sust_btm_row {
+    background: url(images/sust_page_btm_bg.gif);
+    float: left;
+    width: 900px;
+}
+#sust_feature img.bigAZ {
+    float: left;
+    margin-left: 15px;
+    margin-top: 0;
+    margin-right: 20px;
+}
+#sust_box {
+    border-top: 1px solid #c1c2c1;
+    margin-left: -22px;
+    width: 378px;
+}
+p.a_z_index {
+    clear: both;
+    letter-spacing: 0.2em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+
+/*top submenu*/
+#secondary {
+    height: 20px;
+    background-color: #F3F2D6;
+    padding: 3px;
+}
+ul.secondary-links {
+}
+ul.secondary-links li {
+}
+ul.secondary-links li a {
+    text-decoration: none;
+}
+/*recipe list style on home page*/
+body.front div.view-recipes-by-season ul li {
+    list-style-type: none;
+    padding-left: 21px;
+    margin: 0;
+    background-image: url(images/recipe_card_web.png);
+    background-repeat: no-repeat;
+}
+body.front div.view-recipes-by-season ul li div.views-field-title {
+    margin-bottom: -.7em;
+}
+/*for special 'edit' buttons on pages for admin use*/
+div.admin_button {
+    background-color: #EEEEEE;
+    border: 1px solid #666666;
+    clear: both;
+    float: left;
+    margin: 20px 0;
+    padding: 2px 10px;
+}
+#sidebar-right li.current_yr ul>li {
+    margin-left: 15px;
+}
+h4.story_topics {
+    float: left;
+    margin-right: .8em}
+table.seasonality_chart_display th {
+    text-align: center;
+    padding-right: 0;
+}
+h2.farm_feature,h2.artisan_feature {
+    margin-bottom: 25px;
+    text-indent: -999999px;
+}
+#farm_landing_feature,#artisan_landing_feature {
+    float: left;
+    padding-left: 20px;
+    width: 520px;
+}
+#farm_landing_feature {
+    background: url(images/tabs/featured-farm-bg.jpg) 10px 0 no-repeat;
+    margin-bottom: 25px;
+    margin-top: 4px;
+}
+#farm_landing_feature p {
+}
+#artisan_landing_feature {
+    background: url(images/tabs/featured-artisan-bg.jpg) 10px 0 no-repeat;
+}
+h3.where_food {
+    background: url(images/titles/where_does_your_food_come_from.png) no-repeat;
+    text-indent: -999999px;
+    color: white;
+    height: 69px;
+    margin-top: 20px;
+}
+div.funfact {
+    background-color: #D9E8B6;
+    border: 1px solid #DCCFBC;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+/*recipes page background*/
+body.page-recipes #main {
+    background: url(images/recipes_bg.png) repeat-y;
+    border-left: 1px solid #C1C2C1;
+    border-right: 1px solid #C1C2C1;
+}
+div.view-recipes-by-type a.imagecache-tiny_thumbnail img,div.view-recipes-by-type a.imagecache-tiny_thumbnail img,div.view-recipes-by-season a.imagecache-tiny_thumbnail img,div.view-recipes-by-type a.imagecache-tiny_thumbnail img,img.recipe_thumb {
+    float: left;
+    margin: 10px 10px 10px 0;
+    clear: left;
+}
+div.view-recipes-by-type div.views-row,div.view-recipes-by-type div.views-row,div.view-recipes-by-season div.views-row,div.view-recipes-by-type div.views-row {
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+/** Pagers **/
+#content div.item-list ul.pager {
+    position: relative;
+    height: 28px;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    padding-right: 80px;
+}
+#content ul.pager li,#content ul.pager li a {
+    float: left;
+    padding: 0.1em;
+}
+#content ul.pager li.pager-ellipsis,#content ul.pager li.pager-current,#content ul.pager li a {
+    color: #666;
+    font-weight: normal;
+    padding: 4px 10px;
+}
+ #content ul.pager li.pager-current {
+    background-color: #ccc;
+}
+ #content ul.pager li.pager-first a, #content ul.pager li.pager-previous a, #content ul.pager li.pager-next a, #content ul.pager li.pager-last a {
+    font-size: 11px;
+    font-weight: bold;
+    width: 79px;
+    padding: 4px 0px;
+    text-align: center;
+    background: #eee;
+}
+ #content ul.pager li.pager-next, #content ul.pager li.pager-last {
+ border: 0;
+    float: right;
+}
+ #content ul.pager li a:hover {
+    background: #999;
+    color: #fff;
+}
+ /* This whole portion is to accommodate the correct order of next/last pager links. */
+ #content ul.pager li.last {
+    position: absolute;
+    right: 0px;
+}
+ #content ul.pager li.pager-current, #content ul.pager li.pager-item {
+    position: static;
+}
+
+.view-articles-by-season .views-field-field-home-image-fid img {
+    float: left;
+    padding-left: 0;
+    padding-top: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+.view-articles-by-season .views-row {
+    display: block;
+    clear: both;
+}
+.views-field-field-recipesource-value span.field-content p {
+    margin-top: 7px;
+}
+.view-photo-pager .views-field-edit-node a {
+    font-weight: normal;
+    margin-left: 1.2em;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 10px;
+    float: right;
+}
+#content-header,#content-area {
+    padding-left: 20px;
+}
+div.content-special #content-header,div.content-special #content-area {
+    padding-left: 0;
+}
+body.page-calendar #content-header,body.page-calendar #content-area {
+    padding-left: 0;
+}
+#pg_sublinks {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    background: url("images/subpages_nav_bg.png") no-repeat;
+    width: 300px;
+}
+#sublinks_inner {
+ padding: 10px;
+    margin: 0;
+    border: 1px solid #989B42;
+    border-top: none;
+}
+#sidebar-right #pg_sublinks ul {
+    margin-left: 10px;
+}
+#sidebar-right #pg_sublinks li {
+    font-size: 1em;
+    margin-bottom: 7px;
+}
+#sidebar-right #pg_sublinks li.current a {
+    color: #333;
+}
+#sidebar-right #pg_sublinks li a:hover {
+    color: #333;
+    font-weight: normal;
+}
+h2.recipes-home {
+    background: url(images/titles/browse_recipes_course.png) no-repeat;
+    text-indent: -999999px;
+    color: white;
+    height: 60px;
+    margin-bottom: 15px;
+    margin-top: -30px;
+}
+#sidebar-right-inner {
+    padding-right: 10px;
+}
+#cuesa-basic-focused-search-form label {
+    text-indent: -999999px;
+    background: url(images/titles/search_recipes.png) no-repeat;
+    height: 32px;
+    margin-top: -10px;
+}
+#cuesa-basic-focused-search-form,#cuesa-basic-focused-search-form .form-item {
+    margin-top: 0px;
+}
+#cuesa-basic-focused-search-form,#cuesa-basic-focused-search-form .form-item input[type=text] {
+    width: 225px;
+    display: inline;
+}
+#cuesa-basic-focused-search-form input.form-submit {
+    border: 1px solid #999;
+    padding: 1px;
+    margin-left: 5px;
+}
+body.page-calendar #content-header h1.title {
+    background: url(images/titles/calendar.png) no-repeat;
+    text-indent: -999999px;
+    height: 54px;
+    margin-left: 10px;
+    margin-top: -25px;
+}
+.field-label,.farm-term-field-label {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+/*hide label on farmer/artisan search form*/
+#cuesa-basic-farmart-search-form label {
+    display: none;
+}
+#farmart-search-label {
+    margin-top: 25px;
+}
+div.view-a-2-z div.views-field-body {
+    padding-right: 20px;
+}
+#footer h3 {
+    display: none;
+}
+#footer div.block-search {
+    width: 330px;
+    float: right;
+}
+#footer span#thmr_112,#footer div#block-menu-secondary-links {
+    float: left;
+}
+#footer div#edit-search-block-form-1-wrapper label {
+    display: none;
+}
+#footer input#edit-search-block-form-1,#edit-search-theme-form-1 {
+    width: 225px;
+    height: 20px;
+    border: 1px solid #eee;
+    color: #333333;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    margin-top: -29px;
+}
+#edit-search-theme-form-1 {
+    width: 200px;
+}
+#footer input#edit-submit,#footer input[type = 'submit'],#search #edit-submit-1 {
+    border: 1px solid #989B42;
+    border: medium none;
+    width: 48px;
+    height: 30px;
+    font-size: 1px;
+    color: #AFB27E;
+    color: #333;
+    background: url(images/footer_search_btn.png) no-repeat;
+    text-indent: -9999999px;
+}
+#footer #search-block-form div.container-inline {
+    margin-top: -2px;
+}
+
+h1.slideshow-title {
+    padding:0;
+    line-height:1.1em;
+}
+
+div.view-content label{
+    font-weight:bold;
+}
+.farm-term-field-label{
+    font-weight:bold;
+    display:inline;
+}
+div.farm_terms{
+    padding-bottom:12px;
+}
+.field-item p{
+    margin:0 0 1em 0;
+}
+div.farm_sidebar_block p{
+    margin:0 0 1em 0;
+}
+
+/*taxonomy image*/
+.tax_img{
+    float:left;
+    
+}
+.tax_img img{
+   
+    margin: 0 25px 0 0;
+}
+.field-label {
+    font-weight:bold;
+}
+div.block-inner{
+	margin-bottom:25px;
+}
+div.views-row-even,div.views-row-odd{
+	margin-bottom:10px;
+}
+
+.view-farmpreview label{
+	font-weight:bold;
+	line-height:200%;
+}
+
+/* for "add photo" button for gallery */
+  img.imagefield-field_home_image{
+	float:left;
+	margin: 0 10px 10px 0;
+}
+
+table.seasonality_chart_display{
+    font-family:Georgia,"Times New Roman",Times,serif;
+    font-size:11px;
+    border: 1px solid #999;
+}
+table.seasonality_chart_display tbody th{
+    border: 1px solid #999;
+}
+
+table.seasonality_chart_display td{
+    padding-left:10px;
+}
+td.inseason {
+    background-color: #A8C68A;
+    border: 1px solid #999;
+    padding-left:0;
+}
+td.inmarket {
+    background-color: #C2E0AF;
+    border: 1px solid #999;
+    padding-left:0;
+}
+td.plain {
+    border: 1px solid #999;
+    padding-left:0;
+}
+
+  div.add_photo_button{
+    background-color:#EEEEEE;
+    border:1px solid #666666;
+    clear:both;
+    float:left;
+    margin:20px 0;
+    padding:10px;
+}
+#slideshow-sidebar-right{
+    float:right;
+    width: 200px;
+    margin-top:9em;
+}
+
+div.view-photo-pager .views-field-body .field-content{
+    float:left;
+    clear:right;
+    padding-left:25px;
+    overflow:auto;
+    width:200px;
+}
+
+div.view-photo-pager .views-field-field-gallery-photo-fid img{
+    float:left;
+}
+
+
+#content-area.slideshow-area div.view-photo-pager{
+    width:650px;
+    border:1px solid #A8C68A;
+    padding:10px;
+    float:left;
+    clear:both;
+}
+#content-area.slideshow-area div.view-photo-pager div.item-list{ 
+    height:40px;   
+}

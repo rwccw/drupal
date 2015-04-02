@@ -1,4 +1,4 @@
-if (Drupal.jsEnabled) {
+(function ($) {
   $(document).ready(function(){
     $('a.service-links-facebook-widget').each(function(){
       $(this).attr('share_url', $(this).attr('rel'));
@@ -15,4 +15,4 @@ if (Drupal.jsEnabled) {
       var to = window.setTimeout(fix_no_count, 1500);
     }
   });
-}
+})(jQuery);

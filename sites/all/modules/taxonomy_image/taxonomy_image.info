@@ -1,12 +1,13 @@
-; $Id: taxonomy_image.info,v 1.1.2.1.2.2.2.2 2008/03/03 02:03:24 nancyw Exp $
 name = Taxonomy Image
-description = Upload and associate images with taxonomy terms.
+description = "Allows you to display images instead of taxonomy term names"
+core = 7.x
+package = Fields
 dependencies[] = taxonomy
-core = 6.x
-package = Taxonomy Image
-; Information added by drupal.org packaging script on 2009-04-16
-version = "6.x-1.6"
-core = "6.x"
+dependencies[] = image
+
+; Information added by drupal.org packaging script on 2012-05-13
+version = "7.x-1.x-dev"
+core = "7.x"
 project = "taxonomy_image"
-datestamp = "1239889366"
+datestamp = "1336871612"
 

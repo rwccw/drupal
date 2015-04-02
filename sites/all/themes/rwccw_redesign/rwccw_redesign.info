@@ -1,0 +1,16 @@
+name = RWCCW Redesign
+description = Theme for Redwood Curtain CopWatch 
+engine = phptemplate
+core = 7.x
+
+stylesheets[all][] = css/default.css
+stylesheets[all][] = css/main.css
+stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/grid.css
+stylesheets[all][] = fonts/fonts.css
+stylesheets[all][] = css/custom.css
+stylesheets[all][] = style.css
+stylesheets[print][] = css/print.css
+             
+
+

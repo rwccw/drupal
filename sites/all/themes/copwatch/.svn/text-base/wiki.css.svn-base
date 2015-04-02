@@ -1,5 +1,0 @@
-@CHARSET "UTF-8";
-/* style elements for wiki content */
-.wikicontent {
-  background: #D0E4F8;
-}

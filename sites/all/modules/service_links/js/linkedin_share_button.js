@@ -1,4 +1,4 @@
-if (Drupal.jsEnabled) {
+(function ($) {
   $(document).ready(function(){
     $('a.service-links-linkedin-share-button').each(function(){
       var script_obj = document.createElement('script');
@@ -11,4 +11,4 @@ if (Drupal.jsEnabled) {
       $(this).replaceWith(script_obj);
     });
   });
-}
+})(jQuery);

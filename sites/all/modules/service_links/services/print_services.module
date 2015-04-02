@@ -7,7 +7,7 @@
  */
 
 /**
- * Implementation of hook_service_links().
+ * Implementats hook_service_links().
  */
 function print_services_service_links() {
   $links = array();

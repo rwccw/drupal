@@ -1,9 +1,13 @@
 <?php
-// $Id: devel_node_access.install,v 1.1.4.3 2008/10/07 03:29:57 salvis Exp $
 
-function devel_node_access_install() {
-}
-
+/**
+ * Implements hook_uninstall().
+ */
 function devel_node_access_uninstall() {
   variable_del('devel_node_access_debug_mode');
+
+  if (!module_exists('devel') && ($devel_menu = menu_load('devel'))) {
+    // Delete the development menu.
+    menu_delete($devel_menu);
+  }
 }
