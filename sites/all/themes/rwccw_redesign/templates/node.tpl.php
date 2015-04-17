@@ -83,11 +83,11 @@ $content['links']['node']['#links']['node-readmore']['title'] = t('More >>');
   
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+    <h2<?php print $title_attributes; ?> class="teaser-title"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
-  <?php if ($page && $display_submitted): ?>
+  <?php if ($display_submitted): ?>
     <div class="submitted-info"><?php print $submitted; ?></div>
   <?php endif; ?>  
   <div class="content"<?php print $content_attributes; ?>>
@@ -95,12 +95,16 @@ $content['links']['node']['#links']['node-readmore']['title'] = t('More >>');
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
+      hide($content['taxonomy_vocabulary_1']);
       hide($content['taxonomy_vocabulary_4']);
       print render($content);
     ?>
     <?php if (!$page): ?>
       <?php print render($content['links']); ?>
+    <?php endif; ?>
+    <?php if ($page): ?>
       <?php print render($content['taxonomy_vocabulary_4']); ?>
+      <?php print render($content['taxonomy_vocabulary_1']); ?>
     <?php endif; ?>
   </div>
 

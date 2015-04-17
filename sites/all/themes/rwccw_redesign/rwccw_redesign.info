@@ -3,6 +3,7 @@ description = Theme for Redwood Curtain CopWatch
 engine = phptemplate
 core = 7.x
 
+stylesheets[all][] = css/drupal-elements.css
 stylesheets[all][] = css/default.css
 stylesheets[all][] = css/main.css
 stylesheets[all][] = css/normalize.css
@@ -13,4 +14,4 @@ stylesheets[all][] = style.css
 stylesheets[print][] = css/print.css
              
 
-
+scripts[] = js/mobile_menu.js

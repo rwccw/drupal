@@ -54,11 +54,18 @@ Regions:
 			<div id="logo-name">
 		   <?php if ($logo): ?>
 				<a class="logo-link" href="<?php print $base_path; ?>"><img id="logo" src="<?php print $logo; ?>" /></a>
+       	<h1><a class="site-name" href="<?php print $base_path; ?>"><?php print $site_name; ?></a></h1>
 			<?php endif; ?>
 		<?php if ($site_slogan): ?>
 			<div id="tagline"><?php print $site_slogan; ?></div>
 		<?php endif; ?>
 	</div>
+      <div id="menu-toggle">
+        <span class="menu-text">Menu</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </div>
 			<nav>
 				<?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'clearfix')))); ?>
 			</nav>

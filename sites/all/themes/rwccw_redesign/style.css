@@ -23,7 +23,18 @@ h1 {
   padding: 0 10px;
   margin: 30px 0 10px;
   line-height: 1.1em;
-  font-size: 42px;
+  font-size: 45px;
+}
+header h1 {
+  margin-top: 10px;
+  font-size: 33px;
+}
+h2.teaser-title {
+  font-size: 40px;
+  line-height: 1.2;
+}
+h2.teaser-title a {
+  color: #000;
 }
 #tabs { 
   padding: 0 10px;
@@ -32,9 +43,13 @@ ol a:link {
   color: #000;
 }
 
-h1, #site-name, #tagline, #header a {
+h1, #site-name, #tagline, #header a, h2.teaser-title,
+.book-navigation .menu li a, #menu-toggle, h2.title {
   font-family: "Planer", sans-serif;
   font-weight: normal;
+}
+a.site-name {
+  color: #FFFF00;
 }
 #logo-name {
   text-align: center;
@@ -44,7 +59,7 @@ h1, #site-name, #tagline, #header a {
 }
 #content-wrap {
   background-color: #fff;
-  padding-top: 20px;
+  padding-top: 1px;
 }
 footer {
   background-color: #333;
@@ -71,6 +86,19 @@ footer {
   font-size: 13px;
   font-style: italic;
 }
+.region-highlighted p {
+  padding: 0px 10px 5px;  
+}
+ul.inline li {
+  padding-left: 0px;
+}
+.region-highlighted a {
+  background-color: #ffff00;
+  color: #000;
+  padding: 0px 7px;
+  margin: 0 4px;
+  display: inline-block;
+}
 #main-menu a,
 footer a:link, 
 footer a {
@@ -86,11 +114,35 @@ section {
 #main-menu li {
   text-align: right;
 }
+#menu-toggle {
+  color: #ffff00;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  display: block;
+  position: absolute;
+  right: -9999px;
+  top: 0px;
+  right: 10px;
+  width: 25px;
+}
+#menu-toggle .icon-bar {
+  background-color: #ffff00;
+  display: block;
+  height: 3px;
+  width: 100%;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+#menu-toggle .menu-text {
+  position: absolute;
+  left: -9999px;
+}
 #social-links {
   background-color: #fff;
   padding: 3px 10px;
 }
-
 #social-links img {
   margin: 0px 5px 0px 0px;
 }
@@ -240,6 +292,91 @@ ul.primary-links li a {
 ul.primary-links li.last {
   border-right: none; }
 
+.field-type-taxonomy-term-reference {
+  border-bottom: 1px solid #ddd;
+  border-bottom: none;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}  
+.field-type-taxonomy-term-reference .field-item {
+  display: inline-block;
+  margin: 2px 2px 2px 0px;
+}
+.field-type-taxonomy-term-reference .field-item a {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #ddd;
+}
+.field-type-taxonomy-term-reference .field-label {
+  color: #333;
+  font-weight: normal;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+.field-type-taxonomy-term-reference .field-item a.active {
+  background-color: #ccc;
+  font-weight: bold;
+}
+.node .links a {
+  background-color: #ffff00;
+  color: #000;
+  font-size: 14px;
+  padding: 0 6px;
+}
+.book-navigation .page-links {
+  margin-bottom: 10px;
+  border-top-color: #ddd;
+  border-bottom-color: #ddd;
+}
+.book-navigation .menu {
+  margin-bottom: 20px;
+  border-top: 5px solid #eee;
+  padding-left: 0px;
+}
+.book-navigation .menu li {
+  margin: 0px 10px;
+  border-top: #eee solid 1px;
+  list-style: none;
+  padding: 10px 0;
+}
+.book-navigation .menu li.first {
+  border-top: none;
+}
+
+.book-navigation .menu li a {
+  font-size: 20px;
+}
+.field-name-upload {
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+}
+.field-name-upload table {
+  width: 100%;
+}
+.field-name-upload table tr {
+  background-color: transparent;
+}
+.file img {
+  margin: 5px 0px 10px 0px;
+}
+.field-name-upload table tbody tr {
+  color: #999;
+  font-size: 12px;
+}
+.field-name-upload table tbody tr a {
+  font-size: 14px;
+}
+.submitted-info {
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 1px;
+}
+ul li.leaf {
+  list-style-type: disc;
+  list-style-image: none;
+}
+
 /** Footer **/
 
 #footer {
@@ -388,3 +525,21 @@ ul.primary-links li.last {
 #front_btm_col2 .views-field-field-home-image-fid img, body.page-articles .views-field-field-home-image-fid img {
     float: left;
 }
+
+@media handheld, only screen and (max-width: 767px) {
+  #main-menu {
+    display: none;
+  }
+  #header {
+  }
+  .logo-link {
+    display: none;
+  }
+  .region-highlighted {
+    margin-top: 15px;
+  }
+  header h1 {
+    max-width: 300px;
+    margin: 10px auto;
+  }
+} 
