@@ -44,6 +44,7 @@ h1, #site-name, #tagline, #header a {
 }
 #content-wrap {
   background-color: #fff;
+  padding-top: 20px;
 }
 footer {
   background-color: #333;

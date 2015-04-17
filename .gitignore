@@ -1,6 +1,8 @@
-sites/default/files
-sites/default/private
-sites/default/settings.php
-/CHANGELOG.txt
-.htaccess
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
 
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+temp
+.DS_Store
