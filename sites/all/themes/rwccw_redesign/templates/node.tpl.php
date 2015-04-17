@@ -88,7 +88,7 @@ $content['links']['node']['#links']['node-readmore']['title'] = t('More >>');
   <?php print render($title_suffix); ?>
 
   <?php if ($display_submitted): ?>
-    <div class="submitted-info"><?php print $submitted; ?></div>
+    <div class="submitted-info"><?php print $submitted; ?> <span class="node-type-label"><?php print $node->type; ?></span></div>
   <?php endif; ?>  
   <div class="content"<?php print $content_attributes; ?>>
     <?php
