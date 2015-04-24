@@ -44,7 +44,11 @@ ol a:link {
 }
 
 h1, #site-name, #tagline, #header a, h2.teaser-title,
-.book-navigation .menu li a, #menu-toggle, h2.title {
+.book-navigation .menu li a, #menu-toggle, h2.title,
+#block-views-rwccw-projects-list-block-1 h2,
+#block-search-form h2,
+#block-search-form .form-submit,
+#header-wrap h2 {
   font-family: "Planer", sans-serif;
   font-weight: normal;
 }
@@ -420,6 +424,55 @@ ul li.leaf {
 .view-projects-slideshow .views-field-name,
 .view-projects-slideshow .views-field-description {
   padding: 0 10px 0;
+}
+
+.view-rwccw-projects-list ul li.views-row-odd,
+.view-rwccw-projects-list ul li.views-row-even {
+  list-style-type: none;
+  border-bottom: solid 1px #333;
+  margin-left: 10px;
+}
+.view-rwccw-projects-list ul li.views-row-last {
+  border-bottom: none;
+}
+#block-views-rwccw-projects-list-block-1 .field-content h2 {
+  font-family: Geneva, sans-serif;
+  font-size: 14px;
+}
+#block-search-form h2,
+#header-wrap h2 {
+  color: #ffff00;
+  font-size: 18px;
+}
+#search-block-form .form-submit {
+  background-color: #333;
+  color: #ffff00;
+  background-image: none;
+  border: none;
+  padding: 5px 10px;
+  text-shadow: none;
+  border-radius: 0;
+}
+#search-block-form .form-text {
+  background-color: #ffff00;
+  border-radius: 0;
+  padding: 9px 5px 6px;
+  font-size: 14px;
+}
+#header-wrap h2,
+#header-wrap a {
+  color: #ffff00;
+}
+#header-wrap h2.field-content {
+  font-size: 16px;
+}
+#header-wrap .block {
+  margin: 0;
+  padding: 5px 10px 10px;
+  border-bottom: solid 2px #333;
+}
+#header-wrap section {
+  padding: 0;
 }
 
 /** Footer **/
