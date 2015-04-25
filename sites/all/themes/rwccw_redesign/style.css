@@ -48,9 +48,13 @@ h1, #site-name, #tagline, #header a, h2.teaser-title,
 #block-views-rwccw-projects-list-block-1 h2,
 #block-search-form h2,
 #block-search-form .form-submit,
-#header-wrap h2 {
+#header-wrap h2,
+fieldset .fieldset-legend {
   font-family: "Planer", sans-serif;
   font-weight: normal;
+}
+fieldset .fieldset-legend {
+  font-size: 24px;
 }
 a.site-name {
   color: #FFFF00;
